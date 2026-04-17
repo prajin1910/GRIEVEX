@@ -2,6 +2,7 @@ import { Router, type IRouter } from "express";
 import { Category } from "../models/Category";
 import { Product } from "../models/Product";
 import { CreateCategoryBody } from "@workspace/api-zod";
+import { mongoIdToInt } from "../lib/mongoId";
 
 const router: IRouter = Router();
 
@@ -16,7 +17,7 @@ router.get("/categories", async (_req, res): Promise<void> => {
 
   res.json(
     categories.map((c) => ({
-      id: 1,
+      id: mongoIdToInt(c._id.toString()),
       _mongoId: c._id.toString(),
       name: c.name,
       description: c.description ?? null,
@@ -34,7 +35,7 @@ router.post("/categories", async (req, res): Promise<void> => {
   }
   const category = await Category.create(parsed.data);
   res.status(201).json({
-    id: 1,
+    id: mongoIdToInt(category._id.toString()),
     _mongoId: category._id.toString(),
     name: category.name,
     description: category.description ?? null,

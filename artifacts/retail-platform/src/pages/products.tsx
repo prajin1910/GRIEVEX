@@ -86,7 +86,7 @@ export default function Products() {
                         {product.imageUrl ? (
                           <img src={product.imageUrl} alt={product.name} className="h-full w-full object-cover" />
                         ) : (
-                          <span className="font-semibold text-sm">{product.name.substring(0, 2).toUpperCase()}</span>
+                          <span className="font-semibold text-sm">{(product.name || '??').substring(0, 2).toUpperCase()}</span>
                         )}
                       </div>
                       <div>

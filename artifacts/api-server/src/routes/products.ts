@@ -4,17 +4,15 @@ import { Category } from "../models/Category";
 import {
   ListProductsQueryParams,
   CreateProductBody,
-  GetProductParams,
-  UpdateProductParams,
   UpdateProductBody,
-  DeleteProductParams,
 } from "@workspace/api-zod";
+import { mongoIdToInt } from "../lib/mongoId";
 
 const router: IRouter = Router();
 
 function formatProduct(p: any, categoryName?: string) {
   return {
-    id: p._id.toString().slice(-8).split("").reduce((acc: number, c: string) => acc + c.charCodeAt(0), 0) % 100000,
+    id: mongoIdToInt(p._id.toString()),
     _mongoId: p._id.toString(),
     name: p.name,
     description: p.description ?? null,

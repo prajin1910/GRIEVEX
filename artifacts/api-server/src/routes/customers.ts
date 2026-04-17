@@ -1,7 +1,8 @@
 import { Router, type IRouter } from "express";
 import { Customer } from "../models/Customer";
 import { Order } from "../models/Order";
-import { ListCustomersQueryParams, CreateCustomerBody, GetCustomerParams } from "@workspace/api-zod";
+import { ListCustomersQueryParams, CreateCustomerBody } from "@workspace/api-zod";
+import { mongoIdToInt } from "../lib/mongoId";
 
 const router: IRouter = Router();
 
@@ -10,7 +11,7 @@ async function formatCustomer(c: any) {
   const totalSpent = orders.reduce((sum, o) => sum + o.total, 0);
   const lastOrder = orders.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())[0];
   return {
-    id: 1,
+    id: mongoIdToInt(c._id.toString()),
     _mongoId: c._id.toString(),
     name: c.name,
     email: c.email,

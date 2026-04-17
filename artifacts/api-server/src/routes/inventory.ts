@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
 import { Product } from "../models/Product";
-import { UpdateInventoryBody, UpdateInventoryParams } from "@workspace/api-zod";
+import { UpdateInventoryBody } from "@workspace/api-zod";
+import { mongoIdToInt } from "../lib/mongoId";
 
 const router: IRouter = Router();
 

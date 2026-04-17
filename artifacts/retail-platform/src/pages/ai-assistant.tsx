@@ -91,7 +91,7 @@ export default function AiAssistant() {
                             {p.imageUrl ? (
                               <img src={p.imageUrl} alt={p.name} className="h-full w-full object-cover" />
                             ) : (
-                              <span className="font-semibold text-xs text-muted-foreground">{p.name.substring(0, 2).toUpperCase()}</span>
+                              <span className="font-semibold text-xs text-muted-foreground">{(p.name || '??').substring(0, 2).toUpperCase()}</span>
                             )}
                           </div>
                           <div>

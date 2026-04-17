@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
 import { Product } from "../models/Product";
-import { AiChatBody, GetRecommendationsParams } from "@workspace/api-zod";
+import { AiChatBody } from "@workspace/api-zod";
+import { mongoIdToInt } from "../lib/mongoId";
 
 const router: IRouter = Router();
 
@@ -63,7 +64,7 @@ Provide a helpful, conversational response. If the customer is asking about prod
     })
     .slice(0, 4)
     .map((p) => ({
-      id: 1,
+      id: mongoIdToInt(p._id.toString()),
       _mongoId: p._id.toString(),
       name: p.name,
       description: p.description ?? null,
@@ -96,7 +97,7 @@ router.get("/ai/recommendations/:customerId", async (req, res): Promise<void> =>
 
   res.json(
     products.map((p) => ({
-      id: 1,
+      id: mongoIdToInt(p._id.toString()),
       _mongoId: p._id.toString(),
       name: p.name,
       description: p.description ?? null,

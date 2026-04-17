@@ -2,30 +2,23 @@ import { Router, type IRouter } from "express";
 import { Order } from "../models/Order";
 import { Customer } from "../models/Customer";
 import { Product } from "../models/Product";
-import {
-  ListOrdersQueryParams,
-  CreateOrderBody,
-  GetOrderParams,
-  UpdateOrderStatusParams,
-  UpdateOrderStatusBody,
-} from "@workspace/api-zod";
+import { ListOrdersQueryParams, UpdateOrderStatusBody } from "@workspace/api-zod";
+import { mongoIdToInt } from "../lib/mongoId";
 
 const router: IRouter = Router();
 
-let orderCounter = 1000;
-
 function formatOrder(o: any) {
   return {
-    id: orderCounter++,
+    id: mongoIdToInt(o._id.toString()),
     _mongoId: o._id.toString(),
-    customerId: o.customerId ? 1 : null,
+    customerId: o.customerId ? mongoIdToInt(o.customerId.toString()) : null,
     customerName: o.customerName ?? null,
     status: o.status,
     total: o.total,
     itemCount: o.items.length,
     items: o.items.map((item: any) => ({
-      id: 1,
-      productId: 1,
+      id: mongoIdToInt(item._id?.toString() ?? o._id.toString()),
+      productId: mongoIdToInt(item.productId?.toString() ?? "000000000000"),
       _mongoProductId: item.productId?.toString(),
       productName: item.productName,
       quantity: item.quantity,

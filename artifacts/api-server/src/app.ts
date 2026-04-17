@@ -3,6 +3,7 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import { connectMongoDB } from "./lib/mongodb";
 
 const app: Express = express();
 
@@ -28,6 +29,10 @@ app.use(
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+connectMongoDB().catch((err) => {
+  logger.error({ err }, "Failed to connect to MongoDB");
+});
 
 app.use("/api", router);
 

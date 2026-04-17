@@ -1,0 +1,171 @@
+**PROJECT PROMPT: INTELLIGENT RETAIL AI PLATFORM FOR SHOPPING EXPERIENCE & OPERATIONS OPTIMIZATION**
+
+Build an AI-driven retail platform that enhances customer shopping experience and optimizes retailer operations using data, automation, and personalization techniques.
+
+The system should act as both:
+
+1. A smart shopping assistant for customers
+2. An intelligent decision-support system for retailers
+
+---
+
+### CORE OBJECTIVE
+
+Design a scalable, secure, and efficient platform that leverages real-time data and AI to:
+
+* Improve product discovery and personalization
+* Automate retail workflows
+* Optimize inventory, pricing, and demand forecasting
+* Enhance overall customer satisfaction and operational productivity
+
+---
+
+### CUSTOMER EXPERIENCE FEATURES
+
+1. **AI Personal Shopping Assistant**
+
+* Conversational interface for product discovery
+* Understands intent-based queries:
+  (“best phone under ₹30,000 for gaming”)
+* Provides explainable recommendations
+
+2. **Hyper-Personalization Engine**
+
+* Recommends products based on:
+
+  * browsing behavior
+  * purchase history
+  * preferences
+* Dynamic UI personalization (homepage adapts per user)
+
+3. **Smart Search & Discovery**
+
+* Semantic search (NLP-based)
+* Image-based product search (Google Vision API)
+* Auto-suggestions and intent prediction
+
+4. **Predictive Shopping**
+
+* “You may need this next” recommendations
+* Smart reminders (e.g., repeat purchases)
+
+---
+
+### RETAILER OPTIMIZATION FEATURES
+
+1. **Demand Forecasting System**
+
+* Predict future product demand using historical data
+* Identify trends and seasonal spikes
+
+2. **Inventory Optimization**
+
+* Detect low-stock or overstock scenarios
+* Suggest restocking actions automatically
+
+3. **Dynamic Pricing Intelligence**
+
+* Recommend optimal pricing based on demand, trends, and competition (simulated)
+
+4. **Automated Workflow Engine**
+
+* Auto-generate alerts:
+
+  * low stock
+  * high demand
+  * slow-moving products
+* Reduce manual monitoring
+
+5. **Retail Analytics Dashboard**
+
+* Visual insights:
+
+  * sales trends
+  * top products
+  * customer behavior
+* Decision-making support for retailers
+
+---
+
+### CODE QUALITY REQUIREMENTS
+
+* Clean Architecture (Controller → Service → Repository)
+* SOLID principles
+* Modular, maintainable code
+* Proper logging and exception handling
+* API documentation (Swagger/OpenAPI)
+
+---
+
+### SECURITY REQUIREMENTS
+
+* Secure authentication (JWT / OAuth / Google Sign-In)
+* Password encryption (bcrypt)
+* Input validation & sanitization
+* Protection against:
+
+  * SQL Injection
+  * XSS
+  * CSRF
+* Role-based access (Admin / User)
+
+---
+
+### EFFICIENCY REQUIREMENTS
+
+* Optimized database queries (indexing, joins)
+* Caching (Redis or in-memory)
+* API latency optimization
+* Asynchronous processing for heavy tasks
+
+---
+
+### TESTING REQUIREMENTS
+
+* Unit testing (Service layer)
+* Integration testing (API endpoints)
+* Mock external APIs
+* Minimum 70% test coverage
+
+---
+
+### ACCESSIBILITY (A11Y)
+
+* WCAG-compliant UI
+* Keyboard navigation support
+* Screen reader compatibility
+* High-contrast mode
+* Proper ARIA labels
+
+---
+
+### GOOGLE SERVICES INTEGRATION
+
+* Google Authentication (OAuth)
+* Google Maps (delivery/address handling)
+* Firebase (notifications, analytics)
+* Google Cloud Vision API (image search)
+* Google NLP API (intent detection)
+
+---
+
+### TECH STACK (SUGGESTED)
+
+* Backend: Spring Boot
+* Frontend: React
+* Database: PostgreSQL / MySQL
+* AI: NLP + Recommendation logic
+* Cloud: Google Cloud / Firebase
+
+---
+
+### FINAL GOAL
+
+Deliver a production-ready intelligent retail system that:
+
+* Enhances user shopping experience through AI personalization
+* Improves retailer efficiency via automation and data insights
+* Demonstrates strong engineering quality across performance, security, and scalability
+
+The system should feel like:
+“A smart retail ecosystem that thinks, predicts, and assists — not just a shopping website.”
